@@ -1,8 +1,19 @@
 #Started by collecting users input
+import random
 
-MAX_LINES = 3 # an all uppercase, global variable
-MAX_BET = 100 # an all uppercase, global variable
-MIN_BET = 1 #an all uppercase, global variable
+MAX_LINES = 3 # constant representing maximum number of lines
+MAX_BET = 100 # constant representing maximum bet
+MIN_BET = 1 # constant representing minimum bet
+
+ROWS = 3 # constant representing slot rows
+COL = 3 # constant representing slot columns
+
+symbol_count = { #this is a dictionary. Dictionary has key-value pairs.
+    "A": 2, # A is most valuable, each reel has two A-symbols.
+    "B": 4, # B is second most valuable, each reel has four B-symbols.
+    "C": 6, # C is the third most valuable, each reel has six C-symbols.
+    "D": 8 # D is the fourth most valuable, each reel has eight D-symbols.
+}
 
 def deposit(): #This function is responsible for collecting user input
     while True:
