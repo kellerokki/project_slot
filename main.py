@@ -34,6 +34,14 @@ def get_slot_machine_spin(rows, cols, symbols): # need to pick random rows insid
 
     return columns
 
+def print_slot_machine(columns): #Transpose a matrix
+    for row in range(len(columns[0])):
+        for i, column in enumerate(columns): #enmurate gives an index aswell as the item.
+            if i != len(columns) -1:
+                print(column[row], "|")
+            else:
+                print(column[row])
+
 def deposit(): #This function is responsible for collecting user input
     while True:
         amount = input("What would you like to deposit? $")
