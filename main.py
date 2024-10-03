@@ -15,6 +15,12 @@ symbol_count = { #this is a dictionary. Dictionary has key-value pairs.
     "D": 8 # D is the fourth most valuable, each reel has eight D-symbols.
 }
 
+def get_slot_machine_spin(rows, cols, symbols): # need to pick random rows inside each column, passed three parameters.
+    all_symbols = [] # easiest way to randomly select values for each column is to have a list. Remove a value from the list on roll.
+    for symbol, symbol_count in symbols.items(): # add values from symbol_count to all_symbols list
+        for _ in range(symbol_count):
+            all_symbols.append(symbol)
+
 def deposit(): #This function is responsible for collecting user input
     while True:
         amount = input("What would you like to deposit? $")
