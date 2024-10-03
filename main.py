@@ -24,6 +24,7 @@ symbol_value = {
 
 def check_winnings(columns, lines, bet, values):
     winnings = 0
+    winning_line = []
     for line in range(lines):
         symbol = columns[0][line]
         for column in columns:
@@ -32,8 +33,8 @@ def check_winnings(columns, lines, bet, values):
                 break
         else:
             winnings += values[symbol] * bet
-
-    return winnings
+            winning_line.append(line + 1)
+    return winnings, winning_line
 
 def get_slot_machine_spin(rows, cols, symbols): # need to pick random rows inside each column, passed three parameters.
     all_symbols = [] # easiest way to randomly select values for each column is to have a list. Remove a value from the list on roll.
@@ -121,5 +122,7 @@ def main():
     print(f"You are betting $ {bet} on {lines} lines. Total bet is equal to: $ {total_bet}")
     slots = get_slot_machine_spin(ROWS, COL, symbol_count)
     print_slot_machine(slots)
-
+    winnings, winning_line= check_winnings(slots, lines, bet, symbol_value)
+    print(f"You won {winnings}")
+    print("You won on lines:", *winning_line)
 main()
