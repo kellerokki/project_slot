@@ -30,7 +30,7 @@ def get_slot_machine_spin(rows, cols, symbols): # need to pick random rows insid
             current_symbols.remove(value) # this removes the randomly selected value from the list
             column.append(value) # This adds the randomly selected value to column list.
 
-        columns.append[column]
+        columns.append(column)
 
     return columns
 
@@ -38,9 +38,11 @@ def print_slot_machine(columns): #Transpose a matrix
     for row in range(len(columns[0])):
         for i, column in enumerate(columns): #enmurate gives an index aswell as the item.
             if i != len(columns) -1:
-                print(column[row], "|")
+                print(column[row], end= " | ") # End tells the print statement on what to end the line with.
             else:
-                print(column[row])
+                print(column[row], end="")
+
+        print()
 
 def deposit(): #This function is responsible for collecting user input
     while True:
@@ -97,6 +99,7 @@ def main():
     bet = get_bet()
     total_bet = bet * lines
     print(f"You are betting $ {bet} on {lines} lines. Total bet is equal to: $ {total_bet}")
-    print(balance, lines)
+    slots = get_slot_machine_spin(ROWS, COL, symbol_count)
+    print_slot_machine(slots)
 
 main()
