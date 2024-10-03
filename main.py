@@ -21,6 +21,19 @@ def get_slot_machine_spin(rows, cols, symbols): # need to pick random rows insid
         for _ in range(symbol_count):
             all_symbols.append(symbol)
 
+    columns = [] # storing columns, not the rows here
+    for _ in range(cols): # for each of the columns, need to generate the value inside the columns.
+        column = []
+        current_symbols = all_symbols[:] #this copies all_symbols list with removed values.
+        for _ in range(rows):
+            value = random.choice(current_symbols)
+            current_symbols.remove(value) # this removes the randomly selected value from the list
+            column.append(value) # This adds the randomly selected value to column list.
+
+        columns.append[column]
+
+    return columns
+
 def deposit(): #This function is responsible for collecting user input
     while True:
         amount = input("What would you like to deposit? $")
