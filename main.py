@@ -125,7 +125,7 @@ def spin(balance):
     winnings, winning_line= check_winnings(slots, lines, bet, symbol_value)
     print(f"You won {winnings}")
     print("You won on lines:", *winning_line)
-    return winning_line - total_bet #determines how much the user won or lost from this spin
+    return winnings - total_bet #determines how much the user won or lost from this spin
 def main():
     balance = deposit()
     while True:
