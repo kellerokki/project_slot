@@ -15,6 +15,26 @@ symbol_count = { #this is a dictionary. Dictionary has key-value pairs.
     "D": 8 # D is the fourth most valuable, each reel has eight D-symbols.
 }
 
+symbol_value = {
+    "A": 5, #multipliers for symbols
+    "B": 4,
+    "C": 3,
+    "D": 2
+}
+
+def check_winnings(columns, lines, bet, values):
+    winnings = 0
+    for line in range(lines):
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                break
+        else:
+            winnings += values[symbol] * bet
+
+    return winnings
+
 def get_slot_machine_spin(rows, cols, symbols): # need to pick random rows inside each column, passed three parameters.
     all_symbols = [] # easiest way to randomly select values for each column is to have a list. Remove a value from the list on roll.
     for symbol, symbol_count in symbols.items(): # add values from symbol_count to all_symbols list
