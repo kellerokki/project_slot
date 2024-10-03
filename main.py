@@ -13,4 +13,9 @@ def deposit(): #This function is responsible for collecting user input
             print("Please enter a number.")
     return amount #returns the input value
 
-deposit()
+
+
+def main():
+    balance = deposit()
+
+main()
